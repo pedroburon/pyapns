@@ -82,7 +82,6 @@ class APNSProtocol(Protocol):
 
     def sendMessage(self, msg):
         log.msg('APNSProtocol stuff %s' % msg)
-        log.msg('APNSProtocol sendMessage msg=%s' % binascii.hexlify(msg))
         return self.transport.write(msg)
 
     def dataReceived(self, data):
