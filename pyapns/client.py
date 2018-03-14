@@ -175,7 +175,7 @@ class Client(object):
 
         func = getattr(self.connection, method.lower())
         resp = func(url, **kwargs)
-        if resp.headers['content-type'].startswith('application/json'):
+        if 'content-type' in resp.headers and resp.headers['content-type'].startswith('application/json'):
             resp_data = json.loads(resp.content)
         else:
             resp_data = None
